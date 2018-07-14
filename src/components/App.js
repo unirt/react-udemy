@@ -9,7 +9,7 @@ class App extends Component  {
     const props = this.props;
     return (
     <React.Fragment>
-      <div>value: { this.state.value }</div>
+      <div>value: { props.value }</div>
       <button onClick={props.increment}>+1</button>
       <button onClick={props.decrement}>-1</button>
     </React.Fragment>
@@ -18,9 +18,9 @@ class App extends Component  {
 };
 
 const mapStateToProps = state => ({ value: state.count.value });
-const mapDispatchToProps = dispach => ({
-  increment: () => dispach(increment()),
-  decrement: () => dispach(decrement())
+const mapDispatchToProps = dispatch => ({
+  increment: () => dispatch(increment()),
+  decrement: () => dispatch(decrement())
 }); // const mapDispatchToProps = ({ increment, decrement })
 
 export default connect(mapStateToProps, mapDispatchToProps)(App)
